@@ -17,7 +17,7 @@ public class SerialHandler : MonoBehaviour
 
     // COM10以上は\\\\.\\を付加しないと開けない。
     // portNameに直接代入すると失敗するので、ここでいったん別の変数に代入し、AwakeでportNameに代入
-    string myPortName = "\\\\.\\COM5";
+    string myPortName = "\\\\.\\COM4";
     public int bitRate = 115200;
 
     public string portName;
