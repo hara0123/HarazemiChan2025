@@ -37,8 +37,50 @@ public class DoSomething : MonoBehaviour
     void Update()
     {
         // UnityからArduinoに送る場合はココに記述
-        string command = "hogehoge";
-        //serialHandler.Write(command);
+        if (targetScript.jklPress[0])
+        {
+            targetScript.jklPress[0] = false;
+            if (targetScript.jklToggle[0])
+            {
+                // LED ON
+                serialHandler.Write("a");
+            }
+            else
+            {
+                // LED OFF
+                serialHandler.Write("b");
+            }
+        }
+
+        if (targetScript.jklPress[1])
+        {
+            targetScript.jklPress[1] = false;
+            if (targetScript.jklToggle[1])
+            {
+                // LED ON
+                serialHandler.Write("c");
+            }
+            else
+            {
+                // LED OFF
+                serialHandler.Write("d");
+            }
+        }
+
+        if (targetScript.jklPress[2])
+        {
+            targetScript.jklPress[2] = false;
+            if (targetScript.jklToggle[2])
+            {
+                // LED ON
+                serialHandler.Write("e");
+            }
+            else
+            {
+                // LED OFF
+                serialHandler.Write("f");
+            }
+        }
     }
 
     //受信した信号(message)に対する処理
