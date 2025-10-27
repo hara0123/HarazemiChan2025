@@ -15,6 +15,7 @@ public class DoSomething : MonoBehaviour
 
     GameObject harazemichanObject;
     StarterAssetsInputs harazemichanSAIScript;
+    BlockDetector blockDetectorScript;
 
     // シリアル通信のクラス、クラス名は正しく書くこと
     public SerialHandler serialHandler;
@@ -29,6 +30,7 @@ public class DoSomething : MonoBehaviour
 
         harazemichanObject = GameObject.Find("harazemi_chan025_chara");
         harazemichanSAIScript = harazemichanObject.GetComponent<StarterAssetsInputs>();
+        blockDetectorScript = harazemichanObject.gameObject.GetComponent<BlockDetector>();
 
         // 信号受信時に呼ばれる関数としてOnDataReceived関数を登録
         serialHandler.OnDataReceived += OnDataReceived;
@@ -81,6 +83,49 @@ public class DoSomething : MonoBehaviour
                 serialHandler.Write("f");
             }
         }
+
+        if (blockDetectorScript.led1on)
+        {
+            blockDetectorScript.led1on = false;
+            serialHandler.Write("a");
+        }
+
+        if (blockDetectorScript.led1off)
+        {
+            blockDetectorScript.led1off = false;
+            serialHandler.Write("b");
+        }
+
+        if (blockDetectorScript.led2on)
+        {
+            blockDetectorScript.led2on = false;
+            serialHandler.Write("c");
+        }
+
+        if (blockDetectorScript.led2off)
+        {
+            blockDetectorScript.led2off = false;
+            serialHandler.Write("d");
+        }
+
+        if (blockDetectorScript.led3on)
+        {
+            blockDetectorScript.led3on = false;
+            serialHandler.Write("e");
+        }
+
+        if (blockDetectorScript.led3off)
+        {
+            blockDetectorScript.led3off = false;
+            serialHandler.Write("f");
+        }
+
+        if (blockDetectorScript.soudnPlay)
+        {
+            blockDetectorScript.soudnPlay = false;
+            serialHandler.Write("g");
+        }
+
     }
 
     //受信した信号(message)に対する処理
