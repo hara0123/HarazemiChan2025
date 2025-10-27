@@ -31,7 +31,7 @@ public class DoSomething : MonoBehaviour
     {
         // UnityからArduinoに送る場合はココに記述
         string command = "hogehoge";
-        serialHandler.Write(command);
+        //serialHandler.Write(command);
     }
 
     //受信した信号(message)に対する処理
@@ -61,5 +61,6 @@ public class DoSomething : MonoBehaviour
         targetScript.sw[2] = t;
 
         //targetScript.debugText_.text = message;
+        Debug.Log("aaaa\n");
     }
 }
